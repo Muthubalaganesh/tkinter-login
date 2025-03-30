@@ -1,19 +1,17 @@
 # Use an official Python runtime as base image
-FROM python:3.11  # Change from python:3.10 to python:3.11
+FROM python:3.11  
 
+# Set the working directory in the container
+WORKDIR /app  
 
-# Set the working directory
-WORKDIR /app
+# Copy the current directory contents into the container at /app
+COPY . /app  
 
-# Copy the current project files to the container
-COPY . .
-
-# Create and activate a virtual environment
-RUN python -m venv /opt/venv
-ENV PATH="/opt/venv/bin:$PATH"
+# Upgrade pip
+RUN pip install --upgrade pip  
 
 # Install dependencies
-RUN pip install --no-cache-dir -r requirements.txt
+RUN pip install --no-cache-dir -r requirements.txt  
 
-# Run the Tkinter application
-CMD ["python", "main.py"]
+# Command to run the application (modify if needed)
+CMD ["python", "your_script.py"]  # Replace 'your_script.py' with your actual file
