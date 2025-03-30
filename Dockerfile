@@ -1,5 +1,6 @@
 # Use an official Python runtime as base image
-FROM python:3.10
+FROM python:3.11  # Change from python:3.10 to python:3.11
+
 
 # Set the working directory
 WORKDIR /app
